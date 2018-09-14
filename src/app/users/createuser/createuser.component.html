@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="form">
+    <h2>Register</h2>
+    <form (ngSubmit)="userForm.form.valid && onSubmit()" method="post" #userForm="ngForm">
+      <input class="ng-valid" [(ngModel)]="model.Dni" #Dni="ngModel" required name="Dni" id="Dni" type="number" placeholder="Dni"><br>
+      <div *ngIf="Dni.dirty && Dni.invalid" clas="alert alert-danger">
+        Dni Incorrecto
+      </div>
+      <input class="ng-valid" [(ngModel)]="model.Usuario" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value=""><br>
+      <div *ngIf="Usuario.dirty && Usuario.invalid">
+        Usuario Incorrecto
+      </div>            
+      <input class="ng-valid" [(ngModel)]="model.Password" required #Password="ngModel" name="Password" type="password" placeholder="Password" value="">
+      <div *ngIf="Password.dirty && Password.invalid">
+        {{Password.name}}
+        Contraseña Incorrecto
+      </div> 
+      <button [disabled]="!userForm.form.valid">Save</button>
+    </form>
+    <div *ngIf="userForm.form.invalid">
+        Hay Campos erroneos en el formulario, verifiquelos
+    </div> 
+</div>
+</div>
+

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="login" class="row">
+        <h2>Login</h2>
+        <form (ngSubmit)="LoginForm.form.valid && onSubmit()" #LoginForm="ngForm">
+          <div>
+            <input [(ngModel)]="model.Usuario" type="text" name="username" #username="ngModel" placeholder="Username">
+          </div>
+                <div *ngIf="username.invalid">
+                    Usuario Incorrecto
+                </div>
+          <div>
+            <input [(ngModel)]="model.Password"  type="password" placeholder="Password" name="Password" #password="ngModel">
+          </div>
+                <div *ngIf="password.invalid">
+                    Contraseña Incorrecta
+                </div>          
+          <div>
+            <button [disabled]="LoginForm.form.invalid">Go In</button>
+          </div>
+        </form>
+            <div *ngIf="!LoginForm.form.valid">
+                 Formulario Incorrecto
+            </div>
+      </div>
+</div>
+

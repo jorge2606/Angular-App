@@ -1,0 +1,6 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+table tr td{
+    padding: 15px;
+    border: 15px;
+    border-color: black;
+}
