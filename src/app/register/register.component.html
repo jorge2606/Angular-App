@@ -1,27 +1,32 @@
-<div class="container">
-  <div class="form">
+<div class="container col-4">
     <h2>Registrar</h2>
     <form (ngSubmit)="userForm.form.valid && onSubmit()" method="post" #userForm="ngForm">
-      <input class="ng-valid" [(ngModel)]="model.dni" #dni="ngModel" required name="dni" id="dni" type="number" placeholder="Dni"><br>
-      <div *ngIf="Dni.dirty && Dni.invalid" clas="alert alert-danger">
+      <div class="form-group">
+          <input class="form-control" [(ngModel)]="model.dni" #dni="ngModel" required name="dni" id="dni" type="number" placeholder="Dni">
+      </div>
+      <div *ngIf="dni.dirty && dni.invalid" clas="alert alert-danger">
         Dni Incorrecto
       </div>
-      <input class="ng-valid" [(ngModel)]="model.usuario" required #usuario="ngModel" name="usuario" type="text" placeholder="Username" value=""><br>
-      <div *ngIf="Usuario.dirty && Usuario.invalid">
+      <div class="form-group">
+          <input class="form-control" [(ngModel)]="model.usuario" required #usuario="ngModel" name="usuario" type="text" placeholder="Usuario" value="">
+      </div>
+      <div *ngIf="usuario.dirty && usuario.invalid">
         Usuario Incorrecto
-      </div>            
-      <input class="ng-valid" [(ngModel)]="model.password" required #password="ngModel" name="password" type="password" placeholder="Password" value="">
-      <div *ngIf="Password.dirty && Password.invalid">
-        {{Password.name}}
-        Contraseña Incorrecto
+      </div>  
+      <div class="from-group">
+          <input class="form-control" [(ngModel)]="model.password" required #password="ngModel" name="password" type="password" placeholder="Contraseña" value="">
+      </div>    
+      
+      <div class="form-group" style="padding-top : 8px;">
+          <button class="btn btn-success" [disabled]="!userForm.form.valid">Save</button>
+      </div>
+      <div *ngIf="password.dirty && password.invalid">
+        Contraseña con caracteres invalidos
       </div> 
-      <button [disabled]="!userForm.form.valid">Save</button>
     </form>
     <div *ngIf="userForm.form.invalid">
         Hay Campos erroneos en el formulario, verifiquelos
     </div> 
-</div>
-<a href="" routerLink="/users">Usuarios</a>
-<a href="" routerLink="/login">Login</a>
+<a class="btn btn-primary" href="" routerLink="/login">Login</a>
 </div>
 

@@ -52,7 +52,7 @@ export class UserService {
     register(user : Register){
         this.http.post('http://localhost:63098/api/User/register', user).subscribe(
             data => {
-                console.log("POST Request is successful ", data);
+                console.log("REGISTER Request is successful ", data);
             },
             error => {
                 console.log("Rrror", error);

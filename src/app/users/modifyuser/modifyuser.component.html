@@ -1,24 +1,28 @@
-<div class="container">
-  <div class="form">
+<div class="container col-4">
     <h2>Modificar</h2>
     <form (ngSubmit)="onSubmit()"  #userForm="ngForm">
-      <input class="ng-valid" [(ngModel)]="model.dni" #Dni="ngModel" required name="Dni" id="Dni" type="number" placeholder="Dni"><br>
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="model.dni" #Dni="ngModel" required name="Dni" id="Dni" type="number" placeholder="Dni">
+        </div>
       <div *ngIf="submitted && Dni.invalid" clas="alert alert-danger">
           Dni Incorrecto
       </div>
-      <input class="ng-valid" [(ngModel)]="model.usuario" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value=""><br>
+      <div class="form-group">
+            <input class="form-control" [(ngModel)]="model.usuario" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value="">
+      </div>
       <div *ngIf="submitted && Usuario.invalid">
           Usuario Incorrecto
       </div>  
-      <input class="ng-valid" [(ngModel)]="model.password" required #Usuario="ngModel" name="Password" type="password" placeholder="Nueva Contraseña" value=""><br>
+      <div class="form-group">
+            <input class="form-control" [(ngModel)]="model.password" required #Usuario="ngModel" name="Password" type="password" placeholder="Nueva Contraseña" value="">
+      </div>
       <div *ngIf="submitted && Password.invalid">
           Contraseña Incorrecta
       </div>  
-        <button [disabled]="!userForm.form.valid">Save</button>
+        <button class="btn btn-success" [disabled]="!userForm.form.valid">Guardar</button>
     </form>
-    <div *ngIf="userForm.form.invalid && submitted">
+    <div *ngIf="userForm.form.invalid">
         Hay Campos erroneos en el formulario, verifiquelos
     </div> 
-</div>
-  <a href="" routerLink="/users">Login</a>
+    <a class="btn btn-primary" href="" routerLink="/login">Login</a>
 </div>

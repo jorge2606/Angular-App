@@ -9,7 +9,7 @@ import { Register } from './register';
 })
 export class RegisterComponent implements OnInit {
 
-  model : Register;
+  model = new Register();
   constructor(private userService : UserService) { }
 
   onSubmit(){
@@ -17,10 +17,10 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(){
+    debugger;
     this.userService.register(this.model);
   }
   ngOnInit() {
-    console.log(this.model);
   }
 
 }
