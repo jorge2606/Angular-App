@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { JwtInterceptor , ErrorInterceptor,fakeBackendProvider} from './_helpers/';
 import { ModifyuserComponent } from './users/modifyuser/modifyuser.component';
 import { RegisterComponent } from './register/register.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { RegisterComponent } from './register/register.component';
     HttpModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

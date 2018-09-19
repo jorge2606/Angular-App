@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
     ngOnInit() {
       this.getAllUsers();
     }
-  
+
     eliminarUsuario(id : number){
       this.var_user_service.deleteUser(id);
     }
