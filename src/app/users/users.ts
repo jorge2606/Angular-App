@@ -1,5 +1,6 @@
-export class User {
-  Dni: number;
-  Usuario : string;
-  Password : string;
+export class User{
+  id : number;
+  dni: number;
+  usuario : string;
+  password : string;
 }

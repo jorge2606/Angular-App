@@ -21,6 +21,10 @@
             <div *ngIf="!LoginForm.form.valid">
                  Formulario Incorrecto
             </div>
+            <div *ngIf="error" class="alert alert-danger">
+                 Usuario y/o password incorrectos
+            </div>
       </div>
+      <a href="" routerLink="/register">Registrar</a>
 </div>
 

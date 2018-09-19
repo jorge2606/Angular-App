@@ -2,11 +2,14 @@
 	<a href="" routerLink="create">Create</a>
 	<table>
 		<tr>
-			<td>dni</td> <td>Usuario</td><td>Contraseña</td>
+			<td>Dni</td> <td>Usuario</td><td>Contraseña</td>
 		</tr>
 		<tr *ngFor="let user of user_list" class="col-1-4">
-			<td>{{user.dni}}</td><td>{{user.usuario}}</td>
+			<td>{{user.dni}}</td>
+			<td>{{user.usuario}}</td>
 			<td>{{user.password}}</td>
+			<td><a href="" routerLink="/update/{{user.id}}">Modificar</a></td>
+			<td><a href="" routerLink="/users" (click)="eliminarUsuario(user.id)">Eliminar</a></td>
 		</tr>
 	</table>
 	<a href="" routerLink="/">Login</a>

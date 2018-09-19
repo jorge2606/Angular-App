@@ -1,16 +1,16 @@
 <div class="container">
   <div class="form">
-    <h2>Create</h2>
+    <h2>Registrar</h2>
     <form (ngSubmit)="userForm.form.valid && onSubmit()" method="post" #userForm="ngForm">
-      <input class="ng-valid" [(ngModel)]="model.Dni" #Dni="ngModel" required name="Dni" id="Dni" type="number" placeholder="Dni"><br>
+      <input class="ng-valid" [(ngModel)]="model.dni" #dni="ngModel" required name="dni" id="dni" type="number" placeholder="Dni"><br>
       <div *ngIf="Dni.dirty && Dni.invalid" clas="alert alert-danger">
         Dni Incorrecto
       </div>
-      <input class="ng-valid" [(ngModel)]="model.Usuario" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value=""><br>
+      <input class="ng-valid" [(ngModel)]="model.usuario" required #usuario="ngModel" name="usuario" type="text" placeholder="Username" value=""><br>
       <div *ngIf="Usuario.dirty && Usuario.invalid">
         Usuario Incorrecto
       </div>            
-      <input class="ng-valid" [(ngModel)]="model.Password" required #Password="ngModel" name="Password" type="password" placeholder="Password" value="">
+      <input class="ng-valid" [(ngModel)]="model.password" required #password="ngModel" name="password" type="password" placeholder="Password" value="">
       <div *ngIf="Password.dirty && Password.invalid">
         {{Password.name}}
         Contraseña Incorrecto

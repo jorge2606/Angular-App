@@ -17,6 +17,10 @@ export class UsersComponent implements OnInit {
       this.getAllUsers();
     }
   
+    eliminarUsuario(id : number){
+      this.var_user_service.deleteUser(id);
+    }
+
     getAllUsers(): void {
       this.var_user_service.getAll().subscribe(users => {
         this.user_list = users
