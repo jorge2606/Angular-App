@@ -10,10 +10,16 @@ import { AppRoutesModule } from './app-routes.module';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { JwtInterceptor , ErrorInterceptor,fakeBackendProvider} from './_helpers/';
+import { JwtInterceptor , ErrorInterceptor} from './_helpers/';
 import { ModifyuserComponent } from './users/modifyuser/modifyuser.component';
 import { RegisterComponent } from './register/register.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbdModalContent } from './modals/modals.component';
+//Paginator
+import {NgxPaginationModule} from 'ngx-pagination';
+import { NavarComponent } from './navar/navar.component';
+import { RolesComponent } from './roles/roles.component';
+import { CreateRolesComponent } from './roles/create/create.component'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -23,7 +29,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CreateuserComponent,
     HomeComponent,
     ModifyuserComponent,
-    RegisterComponent
+    RegisterComponent,
+    NgbdModalContent,
+    NavarComponent,
+    RolesComponent,
+    CreateRolesComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +42,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -40,6 +51,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     // provider used to create fake backend
     //fakeBackendProvider    
   ],
+  entryComponents: [NgbdModalContent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

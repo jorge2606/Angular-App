@@ -1,14 +1,14 @@
-<div class="container col-4">
-    <h2>Login</h2>
+<div class="container col-3">
+    <h2>Iniciar Sesión</h2>
         <form (ngSubmit)="LoginForm.form.valid && onSubmit()" #LoginForm="ngForm">
           <div>
-            <input [(ngModel)]="model.Usuario" class="form-control" type="text" name="username" #username="ngModel" placeholder="Username">
+            <input [(ngModel)]="model.Usuario" class="form-control" type="text" name="username" #username="ngModel" placeholder="Usuario">
           </div>
                 <div *ngIf="username.invalid">
                     Usuario Incorrecto
                 </div>
           <div style="padding-top : 6px;">
-            <input [(ngModel)]="model.Password" class="form-control"  type="password" placeholder="Password" name="Password" #password="ngModel">
+            <input [(ngModel)]="model.Password" class="form-control"  type="password" placeholder="Contraseña" name="Password" #password="ngModel">
           </div>
                 <div *ngIf="password.invalid">
                     Contraseña Incorrecta

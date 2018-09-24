@@ -1,20 +1,26 @@
-<a href="" class="btn btn-success" routerLink="create">+ Agregar</a>
-	<table class="table">
-		<thead style="background-color : black; color : white;">
-			<tr>
-				<td>Dni</td> <td>Usuario</td><td>Contraseña</td><td></td><td></td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let user of user_list" class="col-1-4">
-				<td>{{user.dni}}</td>
-				<td>{{user.usuario}}</td>
-				<td>{{user.password}}</td>
-				<td><a href="" routerLink="/update/{{user.id}}">Modificar</a></td>
-				<td><a href="" routerLink="/users" (click)="eliminarUsuario(user.id)" >Eliminar</a></td>
-			</tr>
-		</tbody>
-	</table>
+<a href="" style="margin-top : 5px;" class="btn btn-success" routerLink="create">+ Agregar</a>
+<table class="table table-hover" style="margin-top : 5px;margin-right: 25px;">
+	<thead>
+		<tr style="font-weight: bold;">
+			<td>Dni</td> <td>Usuario</td><td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of user_list">
+			<td class="col-lg">{{user.dni}}</td>
+			<td class="col-lg">
+				{{user.usuario}}
+			</td>
+			<td>
+				<a href="" routerLink="/update/{{user.id}}">Modificar</a>
+				<a style="padding-left : 12px;" href="" routerLink="/users" (click)="openEliminar(user.id,user.dni,user.usuario)" >Eliminar</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ngb-pagination (pageChange)="loadPage($event)" [collectionSize]="col_size" [pageSize]="itemsPerPage" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+
 
 
 

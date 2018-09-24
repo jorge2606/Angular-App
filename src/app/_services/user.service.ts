@@ -9,7 +9,11 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<User>('http://localhost:63098/api/User/getall');
+        return this.http.get<User[]>('http://localhost:63098/api/User/getall');
+    }
+
+    getPaginator(page : number){
+        return this.http.get<any>('http://localhost:63098/api/User/page/'+page);
     }
 
     getById(id: number) {
@@ -39,14 +43,7 @@ export class UserService {
     }
 
     deleteUser(id : number){
-        this.http.delete('http://localhost:63098/api/User/'+id).subscribe(
-            data => {
-                console.log("DELETE Request is successful ", data);
-            },
-            error => {
-                console.log("Rrror", error);
-            }
-        );
+        return this.http.delete('http://localhost:63098/api/User/'+id);
     }
 
     register(user : Register){

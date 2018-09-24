@@ -1,0 +1,15 @@
+<button routerLink="create" class="btn btn-success">+ Agregar</button>
+<form action="" #formRoles ="ngForm">
+    <table class="table">
+      <thead>
+          <tr>
+            <td>ID</td><td>Description</td>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of model">
+          <td>{{i.id}}</td><td>{{i.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+</form>
