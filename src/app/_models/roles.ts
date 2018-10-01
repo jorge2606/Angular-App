@@ -1,4 +1,9 @@
+export class Children{
+    text : string;
+    value : string;
+}
+
 export class Roles{
-    id : number;
-    description : string;
+    id : string;
+    childrens : Children[];
 }

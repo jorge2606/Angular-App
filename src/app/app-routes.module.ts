@@ -1,4 +1,3 @@
-import { CreateRolesComponent } from './roles/create/create.component';
 import { RolesComponent } from './roles/roles.component';
 import { ModifyuserComponent } from './users/modifyuser/modifyuser.component';
 import { AuthGuard } from './_guards/auth.guard';
@@ -9,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { NavarComponent } from './navar/navar.component';
 
 const routes: Routes = [
   //canActivate : Interface that a class can implement to be a guard deciding if a route can be activated.
@@ -22,7 +20,7 @@ const routes: Routes = [
   { path: 'update/:id', component: ModifyuserComponent, canActivate : [AuthGuard] },
 
   { path: 'roles', component: RolesComponent, canActivate : [AuthGuard] },
-  { path: 'roles/create', component: CreateRolesComponent, canActivate : [AuthGuard] },
+  { path: 'roles/create', component: RolesComponent, canActivate : [AuthGuard] },
   
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

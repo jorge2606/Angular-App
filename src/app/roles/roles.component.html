@@ -1,15 +1,7 @@
-<button routerLink="create" class="btn btn-success">+ Agregar</button>
-<form action="" #formRoles ="ngForm">
-    <table class="table">
-      <thead>
-          <tr>
-            <td>ID</td><td>Description</td>
-          </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let i of model">
-          <td>{{i.id}}</td><td>{{i.description}}</td>
-        </tr>
-      </tbody>
-    </table>
-</form>
+<div class="col-3">
+    <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" 
+    (selectedChange)="values = $event">
+    </ngx-treeview>
+    <button (click)="save()" style="margin-top: 25px;" class="btn btn-success">Guardar</button>
+</div>
+

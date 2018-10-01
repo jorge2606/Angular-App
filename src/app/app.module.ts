@@ -19,7 +19,8 @@ import { NgbdModalContent } from './modals/modals.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NavarComponent } from './navar/navar.component';
 import { RolesComponent } from './roles/roles.component';
-import { CreateRolesComponent } from './roles/create/create.component'; // <-- import the module
+import { CreateRolesComponent } from './roles/create/create.component';
+import { TreeviewModule } from 'ngx-treeview';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CreateRolesComponent } from './roles/create/create.component'; // <-- i
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    TreeviewModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
