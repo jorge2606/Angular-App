@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService) { }
 
-  model = new Login();
+    model = new Login();
 
    // convenience getter for easy access to form fields
    get f() { return this.loginForm.controls; }

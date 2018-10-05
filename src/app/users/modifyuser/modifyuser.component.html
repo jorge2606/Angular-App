@@ -8,7 +8,7 @@
           Dni Incorrecto
       </div>
       <div class="form-group">
-            <input class="form-control" [(ngModel)]="model.usuario" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value="">
+            <input class="form-control" [(ngModel)]="model.userName" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value="">
       </div>
       <div *ngIf="submitted && Usuario.invalid">
           Usuario Incorrecto

@@ -2,18 +2,23 @@
 <table class="table table-hover" style="margin-top : 5px;margin-right: 25px;">
 	<thead>
 		<tr style="font-weight: bold;">
-			<td>Dni</td> <td>Usuario</td><td></td>
+			<td>Dni</td><td>Usuario</td><td>Rol</td><td>Accción</td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr *ngFor="let user of user_list">
-			<td class="col-lg">{{user.dni}}</td>
-			<td class="col-lg">
-				{{user.usuario}}
+			<td style="width : 0px;" class="col-lg" >{{user.dni}}</td>
+			<td style="width : 0px;" class="col-lg">{{user.userName}}</td>
+			<td style="width : 0px;" class="col-lg">
+				<select class="form-control" #option>
+					<option *ngFor="let rol of roles_list" [value]="rol.id">{{rol.name}}</option>
+				</select>
 			</td>
-			<td>
+			<td style="width : 0px;" class="col-lg">
 				<a href="" routerLink="/update/{{user.id}}">Modificar</a>
-				<a style="padding-left : 12px;" href="" routerLink="/users" (click)="openEliminar(user.id,user.dni,user.usuario)" >Eliminar</a>
+				<a style="padding-left : 12px;" href="" routerLink="/users" (click)="openEliminar(user.id,user.dni,user.usuario)" >Eliminar
+				</a>
+				<a href="" (click)="saveRolUser(user.id,option.value)">Guardar</a>
 			</td>
 		</tr>
 	</tbody>

@@ -34,8 +34,9 @@ export class ModifyuserComponent implements OnInit {
     this.userService.getById(this.id).subscribe(i =>
       {
         this.model.dni = i.dni,
-        this.model.usuario = i.usuario,
+        this.model.userName = i.userName,
         this.model.id = i.id
     })
+
   }
 }

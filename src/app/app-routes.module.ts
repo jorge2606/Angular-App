@@ -1,3 +1,4 @@
+import { RolesPermissionsComponent } from './roles/roles-permissions/roles-permissions.component';
 import { RolesComponent } from './roles/roles.component';
 import { ModifyuserComponent } from './users/modifyuser/modifyuser.component';
 import { AuthGuard } from './_guards/auth.guard';
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'update/:id', component: ModifyuserComponent, canActivate : [AuthGuard] },
 
   { path: 'roles', component: RolesComponent, canActivate : [AuthGuard] },
-  { path: 'roles/create', component: RolesComponent, canActivate : [AuthGuard] },
+  { path: 'roles/permissions/:id', component: RolesPermissionsComponent, canActivate : [AuthGuard] },
   
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

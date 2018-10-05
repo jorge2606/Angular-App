@@ -1,7 +1,14 @@
-<div class="col-3">
-    <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" 
-    (selectedChange)="values = $event">
-    </ngx-treeview>
-    <button (click)="save()" style="margin-top: 25px;" class="btn btn-success">Guardar</button>
-</div>
-
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Roles</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rol of modelRoles">
+        <th scope="row">{{rol.name}}</th>
+        <th scope="row"><a routerLink="/roles/permissions/{{rol.id}}">Permisos</a></th>
+      </tr>
+    </tbody>
+  </table>

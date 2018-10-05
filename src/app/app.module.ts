@@ -21,6 +21,8 @@ import { NavarComponent } from './navar/navar.component';
 import { RolesComponent } from './roles/roles.component';
 import { CreateRolesComponent } from './roles/create/create.component';
 import { TreeviewModule } from 'ngx-treeview';
+import { RolesPermissionsComponent } from './roles/roles-permissions/roles-permissions.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { TreeviewModule } from 'ngx-treeview';
     NgbdModalContent,
     NavarComponent,
     RolesComponent,
-    CreateRolesComponent
+    CreateRolesComponent,
+    RolesPermissionsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { TreeviewModule } from 'ngx-treeview';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+
     // provider used to create fake backend
     //fakeBackendProvider    
   ],
