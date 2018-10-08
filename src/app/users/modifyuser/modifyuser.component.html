@@ -18,11 +18,27 @@
       </div>
       <div *ngIf="submitted && Password.invalid">
           Contraseña Incorrecta
-      </div>  
-        <button class="btn btn-success" [disabled]="!userForm.form.valid">Guardar</button>
+      </div> 
+
+      <div class="form-group">
+            <li *ngFor="let rol of model.rolesUser">
+                <input type="checkbox" [value]="rol.id" name="rol.name" [(ngModel)]="rol.name"> {{rol.name}}
+            </li>   
+      </div>
+
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="model.phoneNumber" required #PhoneNumber="ngModel" name="phoneNumber" type="text" placeholder="Telefóno" value="">
+        </div>
+        <div *ngIf="submitted && PhoneNumber.invalid">
+            Telefóno Incorrecto
+        </div>   
+        <div class="form-group">
+            <button class="btn btn-success" [disabled]="!userForm.form.valid">Guardar</button>
+            <a style="margin-left : 5px;" class="btn btn-primary" href="" routerLink="/login">Login</a>
+        </div>    
+        
     </form>
     <div *ngIf="userForm.form.invalid">
         Hay Campos erroneos en el formulario, verifiquelos
     </div> 
-    <a class="btn btn-primary" href="" routerLink="/login">Login</a>
 </div>

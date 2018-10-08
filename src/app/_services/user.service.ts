@@ -3,7 +3,7 @@ import { RoleUserDto } from './../_models/roles';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { User } from '../users/users';
+import { User, modifyUser } from '../users/users';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { AuthenticationService } from './authentication.service';
@@ -21,7 +21,7 @@ export class UserService {
     }
 
     getById(id: number) {
-        return this.http.get<User>('http://localhost:63098/api/User/getbyid/' + id);
+        return this.http.get<modifyUser>('http://localhost:63098/api/User/getbyid/' + id);
     }
 
     updateUsers(user: User) {
