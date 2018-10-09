@@ -13,11 +13,9 @@
                 <div *ngIf="password.invalid">
                     Contraseña Incorrecta
                 </div>          
-          <div style="padding-top : 6px;">
+          <div style="padding-top : 6px;margin-top : 15px;">
             <button [disabled]="LoginForm.form.invalid" class="btn btn-primary">Ingresar</button>
-          </div>
-          <div style="padding-top : 6px;">
-              <a class="btn btn-light" href="" routerLink="/register">Registrar</a>
+            <a class="btn btn-light" href="" routerLink="/register">Registrar</a>
           </div>
           <div *ngIf="!LoginForm.form.valid">
                 Formulario Incorrecto

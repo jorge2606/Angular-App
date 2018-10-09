@@ -6,5 +6,4 @@ export class Roles{
 export class RoleUserDto{
     rolId : number;
     userId : number;
-
 }

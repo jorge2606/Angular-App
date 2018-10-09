@@ -18,10 +18,15 @@ export class ModifyuserComponent implements OnInit {
   }
   model = new modifyUser;
   addUser() {
+    console.log(this.model);
+    this.model.id = this.id;
     this.userService.updateUsers(this.model);
     alert("Usuario Modificado");
   }
 
+  onChange(rol){
+    console.log(rol.rolBelongUser);
+  }
   onSubmit() {
     this.addUser();
   }

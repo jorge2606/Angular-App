@@ -26,7 +26,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.getAllUsers(this.page);
-    this.getAllRoles();
   }
 
   loadPage(page : number){
@@ -64,16 +63,10 @@ export class UsersComponent implements OnInit {
     })
   }
 
-  //Obtener todos los roles y listarlos en un select 
-  getAllRoles(): void {
-    this.RolesService.getAll().subscribe(result => {      
-        this.roles_list = result
-    });
-  }
-
   saveRolUser(idUser:number, idRol : number){
     this.changeRolDto.rolId = idRol;
     this.changeRolDto.userId = idUser;
+    console.log(this.changeRolDto);
     this.var_user_service.SaveUserRoles(this.changeRolDto);
   }
 
