@@ -12,7 +12,7 @@ export class RolesComponent implements OnInit {
 
     constructor(private rolesService : RoleService){}
     ngOnInit(){
-      this.rolesService.getAll().subscribe(x=>
+      this.rolesService.getAllRoles().subscribe(x=>
         this.modelRoles = x
         );
     }

@@ -1,9 +1,12 @@
+import { UsersComponent } from './../users.component';
+import { async } from '@angular/core/testing';
 import { map } from 'rxjs/operators';
 import { UserService } from './../../_services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, modifyUser } from '../users';
+
 
 @Component({
   selector: 'app-modifyuser',
@@ -14,21 +17,25 @@ export class ModifyuserComponent implements OnInit {
 
   id: number;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private userService: UserService) {
+  constructor(private router : Router, private http: HttpClient, private route: ActivatedRoute, private userService: UserService) {
   }
   model = new modifyUser;
-  addUser() {
-    console.log(this.model);
-    this.model.id = this.id;
-    this.userService.updateUsers(this.model);
-    alert("Usuario Modificado");
-  }
+  
 
   onChange(rol){
     console.log(rol.rolBelongUser);
   }
-  onSubmit() {
-    this.addUser();
+   onSubmit() {
+    this.model.id = this.id;
+    this.userService.updateUsers(this.model).subscribe(
+      result => {
+        this.router.navigate(['/users']);
+      },
+        error => {
+         // this.errors = error.error.notifications;
+        }      
+    );
+    this.router.navigate([UsersComponent]);
   }
   ngOnInit() {
     //le asigno el id que extraigo de la url

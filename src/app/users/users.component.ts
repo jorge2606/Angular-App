@@ -4,7 +4,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import { User } from './users';
-import { RoleService } from '../_services/role.service';
 
 @Component({
   selector: 'app-users',
@@ -17,12 +16,14 @@ export class UsersComponent implements OnInit {
   user_list: User[];
   roles_list : Roles;
   col_size : number;
-  itemsPerPage : number = 2;
+  itemsPerPage : number = 10;
   value : number;
+
+  
 
   changeRolDto = new RoleUserDto();
   
-  constructor(private var_user_service: UserService, private modalService: NgbModal, private RolesService : RoleService) { }
+  constructor(private var_user_service: UserService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getAllUsers(this.page);
@@ -61,13 +62,6 @@ export class UsersComponent implements OnInit {
       () => {
         console.log('Backdrop click');
     })
-  }
-
-  saveRolUser(idUser:number, idRol : number){
-    this.changeRolDto.rolId = idRol;
-    this.changeRolDto.userId = idUser;
-    console.log(this.changeRolDto);
-    this.var_user_service.SaveUserRoles(this.changeRolDto);
   }
 
 }

@@ -3,7 +3,7 @@ import { RoleUserDto } from './../_models/roles';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { User, modifyUser } from '../users/users';
+import { User, modifyUser, createUser } from '../users/users';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { AuthenticationService } from './authentication.service';
@@ -24,26 +24,16 @@ export class UserService {
         return this.http.get<modifyUser>('http://localhost:63098/api/User/getbyid/' + id);
     }
 
-    updateUsers(user: User) {
-        this.http.put('http://localhost:63098/api/User/', user).subscribe(
-            data => {
-                console.log("PUT Request is successful ", data);
-            },
-            error => {
-                console.log("Rrror", error);
-            }
-        );
+    updateUsers(user: User) : Observable<any> {
+        return this.http.put('http://localhost:63098/api/User/', user);
     }
 
-    createWithObjectUser(user: User) {
-        this.http.post('http://localhost:63098/api/User/', user).subscribe(
-            data => {
-                console.log("POST Request is successful ", data);
-            },
-            error => {
-                console.log("Rrror", error);
-            }
-        );
+    createWithObjectUser(user: createUser): Observable<any> {
+        return this.http.post('http://localhost:63098/api/User/', user)
+        .pipe(
+            map(this.authenticationService.saveToken),
+            catchError(error => this.handleError(error))
+          );
     }
 
     deleteUser(id: number) {

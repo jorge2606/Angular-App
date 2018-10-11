@@ -1,28 +1,61 @@
-<div class="container col-4">
-    <h2>Crear</h2>
+<div class="container col-4 navarStyle">
+    <h2>Nuevo Usuario</h2>
     <form (ngSubmit)="userForm.form.valid && onSubmit()" method="post" #userForm="ngForm">
-      <div class="form-group">
-          <input class="form-control" [(ngModel)]="model.Dni" #Dni="ngModel" required name="Dni" id="Dni" type="number" placeholder="Dni">
+
+      <div style="margin-bottom:5px;" class="form-group">
+          <input class="form-control" [(ngModel)]="model.dni" #Dni="ngModel" required name="Dni" id="Dni" type="number" placeholder="Dni">
       </div>
-      <div *ngIf="Dni.dirty && Dni.invalid" clas="alert alert-danger">
+
+      <div style="margin-top: 10px;" *ngIf="Dni.dirty && Dni.invalid" class="alert alert-danger">
         Dni Incorrecto
       </div>
-      <div class="form-group">
-          <input class="form-control" [(ngModel)]="model.Usuario" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value="">
+
+      <div  style="margin-bottom:5px;" class="form-group">
+          <input class="form-control" [(ngModel)]="model.userName" required #Usuario="ngModel" name="Usuario" type="text" placeholder="Username" value="">
       </div>
-      <div *ngIf="Usuario.dirty && Usuario.invalid">
+
+      <div style="margin-top: 10px;" *ngIf="Usuario.dirty && Usuario.invalid" class="alert alert-danger">
         Usuario Incorrecto
       </div>
-      <div class="form-group">
-          <input class="form-control" [(ngModel)]="model.Password" required #Password="ngModel" name="Password" type="password" placeholder="Password" value="">
-      </div>            
-      <div *ngIf="Password.dirty && Password.invalid">
-        Contraseña Incorrecto
-      </div> 
-      <button class="btn btn-success" [disabled]="!userForm.form.valid">Guardar</button>
+
+      <div style="margin-bottom:5px;" class="form-group">
+          <input class="form-control" [(ngModel)]="model.password" required #Password="ngModel" name="Password" type="password" placeholder="Password" value="">
+      </div>   
+
+      <div class="form-group" style="margin-bottom : 0px;">
+            <div class="row">
+                <li *ngFor="let rol of model.rolesUser" style="list-style:none">
+                    <div class="col">
+                        <input type="checkbox" name="{{rol.id}}" value="{{rol.id}}" [(ngModel)]="rol.rolBelongUser" />
+                        <label class="navarStyle" style="text-transform: capitalize; padding-left: 5px;font-size: 11px;" for="exampleCheck1">{{rol.name}}</label>
+                    </div>   
+                </li>  
+            </div>
+        </div> 
+
+        <div  style="margin-bottom:5px;" class="form-group">
+            <input class="form-control" [(ngModel)]="model.phoneNumber" required #PhoneNumber="ngModel" name="phoneNumber"
+                type="text" placeholder="Telefóno" value="">
+        </div>
+
+        <div style="margin-top: 10px;" *ngIf="PhoneNumber.dirty && PhoneNumber.invalid" class="alert alert-danger">
+            Telefóno Incorrecto
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success navarStyle" [disabled]="!userForm.form.valid">Guardar</button>
+            <a style="margin-left : 5px;" class="btn btn-primary navarStyle" href="" routerLink="/users">atrás</a>
+        </div>
     </form>
-    <div *ngIf="userForm.form.invalid">
+    
+    <div style="margin-top: 10px;" *ngIf="userForm.form.invalid" class="alert alert-danger">
         Hay Campos erroneos en el formulario, verifiquelos
-    </div> 
+    </div>
+
+    <div>
+        <ul style="margin-top : 15px;" *ngIf="errors.length != 0" class="alert alert-danger" role="alert">
+            <li *ngFor="let error of errors">{{ error.value }}</li>
+        </ul>
+    </div>
 </div>
 

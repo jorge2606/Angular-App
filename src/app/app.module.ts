@@ -22,7 +22,11 @@ import { RolesComponent } from './roles/roles.component';
 import { CreateRolesComponent } from './roles/create/create.component';
 import { TreeviewModule } from 'ngx-treeview';
 import { RolesPermissionsComponent } from './roles/roles-permissions/roles-permissions.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
 
 @NgModule({
   declarations: [
@@ -48,6 +52,7 @@ import { RolesPermissionsComponent } from './roles/roles-permissions/roles-permi
     ReactiveFormsModule,
     NgbModule,
     NgxPaginationModule,
+    FontAwesomeModule,
     TreeviewModule.forRoot()
   ],
   providers: [

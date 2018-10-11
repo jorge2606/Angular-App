@@ -1,7 +1,7 @@
 import { UserService } from './../../_services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../users'
+import { createUser } from '../users'
+import { RoleService } from '../../_services/role.service';
 @Component({
   selector: 'app-createuser',
   templateUrl: './createuser.component.html',
@@ -9,17 +9,35 @@ import { User } from '../users'
 })
 export class CreateuserComponent implements OnInit {
 
-  constructor(private http : HttpClient, private UserService : UserService) {}
-  model = new User();
+  constructor(private UserService : UserService, private rolService : RoleService) {}
+  model = new createUser();
+  errors = [];
+
+
   addUser(){
-    this.UserService.createWithObjectUser(this.model);
+    console.log(this.model);
+    
+    this.UserService.createWithObjectUser(this.model).subscribe(
+      data => {
+          console.log("POST Request is successful ", data);
+      },
+        error => {
+          this.errors = error.error.notifications;
+     } 
+  );;
   }
 
+  getAllRoles(){
+    this.rolService.getAll().subscribe(
+      rol => this.model.rolesUser = rol
+    );
+  }
   onSubmit(){
     this.addUser();
   }
   
   ngOnInit() {
+    this.getAllRoles();
   }
 
 }

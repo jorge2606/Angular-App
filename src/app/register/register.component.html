@@ -43,7 +43,7 @@
     <div *ngIf="userForm.form.invalid && !userForm.form.dirty">
         Hay Campos erroneos en el formulario, verifiquelos
     </div>
-    <div style="width : 100;">
+    <div>
         <ul style="margin-top : 15px;" *ngIf="errors.length != 0" class="alert alert-danger" role="alert">
             <li *ngFor="let error of errors">{{ error.value }}</li>
         </ul>
